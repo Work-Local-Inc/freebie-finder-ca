@@ -23,24 +23,37 @@ const Index = () => {
     setIsLoading(true);
     
     try {
-      // Create FormData with all form fields
-      const formData = new FormData(e.target as HTMLFormElement);
+      // Check if we're in a Lovable preview environment
+      const isPreview = window.location.hostname.includes('lovableproject.com') || 
+                       window.location.hostname === 'localhost';
       
-      // Submit to Netlify using fetch
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
-      });
-
-      if (response.ok) {
+      if (isPreview) {
+        // Simulate form submission in preview mode
+        await new Promise(resolve => setTimeout(resolve, 1000));
         toast({
-          title: "Success! 🎉",
-          description: "You've been subscribed to our free samples newsletter!",
+          title: "Success! 🎉", 
+          description: "Demo mode: You've been subscribed to our free samples newsletter!",
         });
         setEmail("");
       } else {
-        throw new Error("Form submission failed");
+        // Real Netlify form submission for deployed sites
+        const formData = new FormData(e.target as HTMLFormElement);
+        
+        const response = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData as any).toString(),
+        });
+
+        if (response.ok) {
+          toast({
+            title: "Success! 🎉",
+            description: "You've been subscribed to our free samples newsletter!",
+          });
+          setEmail("");
+        } else {
+          throw new Error("Form submission failed");
+        }
       }
     } catch (error) {
       toast({
