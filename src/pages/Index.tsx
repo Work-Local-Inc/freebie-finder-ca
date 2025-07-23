@@ -40,6 +40,33 @@ const Index = () => {
           </p>
         </div>
       </main>
+
+      {/* Email Capture Footer */}
+      <footer className="bg-primary text-primary-foreground mt-16 py-12">
+        <div className="max-w-2xl mx-auto px-6 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            Join 50,000+ Canadians Getting Free Samples!
+          </h2>
+          <p className="text-lg mb-8 opacity-90">
+            Get the latest free samples and giveaways delivered to your inbox daily.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              className="flex-1 px-4 py-3 rounded-lg text-foreground bg-background border border-border focus:outline-none focus:ring-2 focus:ring-accent"
+            />
+            <button className="px-8 py-3 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition-colors whitespace-nowrap">
+              Get Free Samples
+            </button>
+          </div>
+          
+          <p className="text-sm mt-4 opacity-75">
+            No spam, unsubscribe anytime. Canadian brands only.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
