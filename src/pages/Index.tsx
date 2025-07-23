@@ -84,7 +84,7 @@ const Index = () => {
           </div>
           
           {/* Email Disclaimer */}
-          <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
+          <p className="text-red-900 text-sm mb-6 max-w-md mx-auto">
             We respect your inbox. You can unsubscribe at any time.
           </p>
 
