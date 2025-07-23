@@ -1,5 +1,5 @@
 import heroBanner from "../assets/hero-products-banner.png";
-import canadianFlag from "../assets/canadian-flag.png";
+import americanFlag from "../assets/american-flag.png";
 const Index = () => {
   return <div className="min-h-screen bg-background">
       {/* Sticky Header */}
@@ -11,16 +11,16 @@ const Index = () => {
 
       {/* Hero Unit */}
       <div className="relative w-full h-80 md:h-96 mb-12 overflow-hidden">
-        <img src="/lovable-uploads/c27d8859-168c-4fa1-ae60-c62723812ff9.png" alt="Free Samples Product Showcase - Popular Canadian Brands" className="w-full h-full object-cover" />
+        <img src="/lovable-uploads/c27d8859-168c-4fa1-ae60-c62723812ff9.png" alt="Free Samples Product Showcase - Popular American Brands" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/10"></div>
         
         {/* Circular Badge */}
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-48 h-48 md:w-64 md:h-64 rounded-full bg-red-600 flex items-start justify-center pt-6 md:pt-8 shadow-elevated overflow-hidden z-20">
-          <div className="absolute inset-0 bg-center bg-cover opacity-30" style={{backgroundImage: `url(${canadianFlag})`}}></div>
+          <div className="absolute inset-0 bg-center bg-cover opacity-30" style={{backgroundImage: `url(${americanFlag})`}}></div>
           <div className="text-center px-4 relative z-10">
             <div className="text-white font-bold text-xl md:text-2xl leading-tight">
               100% FREE<br />
-              CANADIAN<br />
+              AMERICAN<br />
               SAMPLES
             </div>
           </div>
@@ -30,19 +30,19 @@ const Index = () => {
       {/* Main Content */}
       <main className="max-w-4xl mx-auto text-center px-[12px]">
         <h1 className="text-4xl font-bold mb-8 text-blue-500 md:text-6xl">
-          Latest Free Samples & Giveaways in Canada
+          Latest Free Samples & Giveaways in USA
         </h1>
         
         <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
           <p>
-            Discover the best free samples Canada has to offer! Get beauty products, food samples, 
+            Discover the best free samples USA has to offer! Get beauty products, food samples, 
             household goods, and exclusive giveaways sent right to your email. Updated daily with 
-            fresh opportunities from trusted Canadian brands.
+            fresh opportunities from trusted American brands.
           </p>
           
           <p>
-            Join over 50,000 Canadians who save money by trying products for free before buying. 
-            From coast to coast - Ontario, Quebec, British Columbia, Alberta, and all provinces eligible!
+            Join over 50,000 Americans who save money by trying products for free before buying. 
+            From coast to coast - California, Texas, New York, Florida, and all states eligible!
           </p>
         </div>
       </main>
@@ -59,7 +59,7 @@ const Index = () => {
         
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Join 50,000+ Canadians Getting Free Samples! 🎁
+            Join 50,000+ Americans Getting Free Samples! 🎁
           </h2>
           <p className="text-xl mb-2 text-white/90 max-w-2xl mx-auto">
             Get the latest free samples and giveaways delivered to your inbox daily.
@@ -86,7 +86,7 @@ const Index = () => {
           {/* Trust Badges */}
           <div className="flex justify-center items-center gap-8 mb-6 opacity-60">
             <div className="text-xs text-white/80 font-medium bg-white/10 px-3 py-1 rounded-full">
-              🍁 Canadian Brands
+              🇺🇸 American Brands
             </div>
             <div className="text-xs text-white/80 font-medium bg-white/10 px-3 py-1 rounded-full">
               🔒 100% Secure
@@ -105,7 +105,7 @@ const Index = () => {
             <p className="text-white/90 text-sm italic">
               "I've saved over $500 trying products for free before buying!"
             </p>
-            <p className="text-white/70 text-xs mt-1">- Sarah M., Toronto</p>
+            <p className="text-white/70 text-xs mt-1">- Sarah M., New York</p>
           </div>
         </div>
       </footer>
