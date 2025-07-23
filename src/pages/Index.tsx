@@ -29,7 +29,7 @@ const Index = () => {
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto text-center px-[12px]">
-        <h1 className="text-4xl font-bold mb-8 md:text-6xl" style={{color: '#d63b2a'}}>
+        <h1 className="text-4xl font-bold mb-8 text-blue-500 md:text-6xl">
           Latest Free Samples & Giveaways in USA
         </h1>
         
