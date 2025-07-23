@@ -33,6 +33,13 @@
   </head>
 
   <body>
+    <!-- Hidden form for Netlify to detect at build time -->
+    <form name="email-signup" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
+      <input type="email" name="email" />
+      <input type="hidden" name="form-name" value="email-signup" />
+    </form>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
