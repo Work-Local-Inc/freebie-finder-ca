@@ -1,4 +1,4 @@
-import heroBannerImage from "@/assets/hero-banner.png";
+
 
 const Index = () => {
   return (
@@ -15,7 +15,7 @@ const Index = () => {
       {/* Hero Banner */}
       <div className="w-full mb-12">
         <img 
-          src={heroBannerImage} 
+          src="/lovable-uploads/ef69f5b6-ea6d-4771-9c94-39aec2496591.png" 
           alt="Free Samples Canada Hero Banner" 
           className="w-full h-32 object-cover"
         />
