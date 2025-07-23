@@ -19,8 +19,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-center bg-cover opacity-20" style={{backgroundImage: `url(${canadianFlag})`}}></div>
           <div className="text-center px-4 relative z-10">
             <div className="text-white font-bold text-xl md:text-2xl leading-tight">
-              100%<br />
-              FREE<br />
+              100% FREE<br />
               CANADIAN<br />
               SAMPLES
             </div>
