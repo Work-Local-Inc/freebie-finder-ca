@@ -50,20 +50,8 @@ const Index = () => {
           }}></div>
         </div>
         
+        
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          {/* Trust Badges */}
-          <div className="flex justify-center items-center gap-8 mb-8 opacity-60">
-            <div className="text-xs text-white/80 font-medium bg-white/10 px-3 py-1 rounded-full">
-              🍁 Canadian Brands
-            </div>
-            <div className="text-xs text-white/80 font-medium bg-white/10 px-3 py-1 rounded-full">
-              🔒 100% Secure
-            </div>
-            <div className="text-xs text-white/80 font-medium bg-white/10 px-3 py-1 rounded-full">
-              📧 No Spam
-            </div>
-          </div>
-
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Join 50,000+ Canadians Getting Free Samples! 🎁
           </h2>
@@ -93,19 +81,16 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Trust Elements */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-6">
-            <div className="flex items-center gap-2 text-white/80">
-              <span className="text-2xl">✅</span>
-              <span className="text-sm font-medium">No spam, unsubscribe anytime</span>
+          {/* Trust Badges */}
+          <div className="flex justify-center items-center gap-8 mb-6 opacity-60">
+            <div className="text-xs text-white/80 font-medium bg-white/10 px-3 py-1 rounded-full">
+              🍁 Canadian Brands
             </div>
-            <div className="flex items-center gap-2 text-white/80">
-              <span className="text-2xl">🇨🇦</span>
-              <span className="text-sm font-medium">Canadian brands only</span>
+            <div className="text-xs text-white/80 font-medium bg-white/10 px-3 py-1 rounded-full">
+              🔒 100% Secure
             </div>
-            <div className="flex items-center gap-2 text-white/80">
-              <span className="text-2xl">⚡</span>
-              <span className="text-sm font-medium">Daily updates</span>
+            <div className="text-xs text-white/80 font-medium bg-white/10 px-3 py-1 rounded-full">
+              📧 No Spam
             </div>
           </div>
 
