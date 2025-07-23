@@ -10,7 +10,7 @@ const Index = () => {
       </header>
 
       {/* Hero Unit */}
-      <div className="relative w-full h-80 md:h-96 mb-12 overflow-hidden">
+      <div className="relative w-full h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] mb-12 overflow-hidden">
         <img src="/lovable-uploads/b07a5aae-5c5a-48a9-871c-5acfa19f3933.png" alt="Free Samples from Top American Brands - Ben & Jerry's, Starbucks, Tide, Doritos and More" className="w-full h-full object-cover object-center" />
         <div className="absolute inset-0 bg-black/10"></div>
         
