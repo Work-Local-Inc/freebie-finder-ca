@@ -18,7 +18,7 @@ const Index = () => {
         <img 
           src="/lovable-uploads/c27d8859-168c-4fa1-ae60-c62723812ff9.png" 
           alt="Free Samples Product Showcase - Popular Canadian Brands" 
-          className="w-full h-40 object-cover"
+          className="w-full h-auto"
         />
       </div>
 
