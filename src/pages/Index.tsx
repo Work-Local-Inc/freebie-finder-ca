@@ -1,4 +1,3 @@
-import logoImage from "@/assets/logo.png";
 import heroBannerImage from "@/assets/hero-banner.png";
 
 const Index = () => {
@@ -7,7 +6,7 @@ const Index = () => {
       {/* Header with Logo */}
       <header className="flex justify-center py-8">
         <img 
-          src={logoImage} 
+          src="/lovable-uploads/c63f3671-fa40-485a-afab-71a2c8e221c4.png" 
           alt="Freebies.com Logo" 
           className="h-16 w-auto"
         />
