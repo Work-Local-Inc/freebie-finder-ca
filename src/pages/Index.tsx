@@ -11,7 +11,7 @@ const Index = () => {
 
       {/* Hero Unit */}
       <div className="relative w-full h-80 md:h-96 mb-12 overflow-hidden">
-        <img src="/lovable-uploads/c27d8859-168c-4fa1-ae60-c62723812ff9.png" alt="Free Samples Product Showcase - Popular American Brands" className="w-full h-full object-cover" />
+        <img src="/lovable-uploads/b07a5aae-5c5a-48a9-871c-5acfa19f3933.png" alt="Free Samples from Top American Brands - Ben & Jerry's, Starbucks, Tide, Doritos and More" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/10"></div>
         
         {/* Circular Badge */}
