@@ -64,7 +64,7 @@ const Index = () => {
                   📧
                 </span>
               </div>
-              <button className="px-8 py-4 bg-secondary text-secondary-foreground rounded-xl font-bold text-lg hover:bg-secondary/90 transition-all duration-300 hover:scale-105 shadow-elevated whitespace-nowrap">
+              <button className="px-8 py-4 text-secondary-foreground rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 shadow-elevated whitespace-nowrap bg-green-600 hover:bg-green-500">
                 Get Free Samples →
               </button>
             </div>
