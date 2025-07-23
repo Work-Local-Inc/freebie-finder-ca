@@ -1,12 +1,46 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import logoImage from "@/assets/logo.png";
+import heroBannerImage from "@/assets/hero-banner.png";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-background">
+      {/* Header with Logo */}
+      <header className="flex justify-center py-8">
+        <img 
+          src={logoImage} 
+          alt="Freebies.com Logo" 
+          className="h-16 w-auto"
+        />
+      </header>
+
+      {/* Hero Banner */}
+      <div className="w-full mb-12">
+        <img 
+          src={heroBannerImage} 
+          alt="Free Samples Canada Hero Banner" 
+          className="w-full h-32 object-cover"
+        />
       </div>
+
+      {/* Main Content */}
+      <main className="max-w-4xl mx-auto px-6 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
+          Latest Free Samples & Giveaways in Canada
+        </h1>
+        
+        <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+          <p>
+            Discover the best free samples Canada has to offer! Get beauty products, food samples, 
+            household goods, and exclusive giveaways sent right to your email. Updated daily with 
+            fresh opportunities from trusted Canadian brands.
+          </p>
+          
+          <p>
+            Join over 50,000 Canadians who save money by trying products for free before buying. 
+            From coast to coast - Ontario, Quebec, British Columbia, Alberta, and all provinces eligible!
+          </p>
+        </div>
+      </main>
     </div>
   );
 };
