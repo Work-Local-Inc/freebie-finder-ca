@@ -88,19 +88,6 @@ const Index = () => {
             We respect your inbox. You can unsubscribe at any time.
           </p>
 
-          {/* Trust Badges */}
-          <div className="flex justify-center items-center gap-8 mb-6 opacity-60">
-            <div className="text-xs text-white/80 font-medium bg-white/10 px-3 py-1 rounded-full">
-              🇺🇸 American Brands
-            </div>
-            <div className="text-xs text-white/80 font-medium bg-white/10 px-3 py-1 rounded-full">
-              🔒 100% Secure
-            </div>
-            <div className="text-xs text-white/80 font-medium bg-white/10 px-3 py-1 rounded-full">
-              📧 No Spam
-            </div>
-          </div>
-
           {/* Social Proof */}
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 max-w-md mx-auto">
             <div className="flex items-center justify-center gap-2 mb-2">
@@ -111,6 +98,19 @@ const Index = () => {
               "I've saved over $500 trying products for free before buying!"
             </p>
             <p className="text-white/70 text-xs mt-1">- Sarah M., New York</p>
+          </div>
+          
+          {/* Trust Badges */}
+          <div className="flex justify-center items-center gap-8 mt-6 opacity-60">
+            <div className="text-xs text-white/80 font-medium bg-white/10 px-3 py-1 rounded-full">
+              🇺🇸 American Brands
+            </div>
+            <div className="text-xs text-white/80 font-medium bg-white/10 px-3 py-1 rounded-full">
+              🔒 100% Secure
+            </div>
+            <div className="text-xs text-white/80 font-medium bg-white/10 px-3 py-1 rounded-full">
+              📧 No Spam
+            </div>
           </div>
         </div>
       </footer>
