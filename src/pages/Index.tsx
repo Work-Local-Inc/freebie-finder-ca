@@ -16,7 +16,7 @@ const Index = () => {
       {/* Hero Banner */}
       <div className="w-full mb-12">
         <img 
-          src="/lovable-uploads/b333e582-4e66-4737-8f52-7114dce39a45.png" 
+          src="/lovable-uploads/c27d8859-168c-4fa1-ae60-c62723812ff9.png" 
           alt="Free Samples Product Showcase - Popular Canadian Brands" 
           className="w-full h-40 object-cover"
         />
