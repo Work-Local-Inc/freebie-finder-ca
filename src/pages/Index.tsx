@@ -86,11 +86,7 @@ const Index = () => {
           {/* Social Proof */}
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 max-w-md mx-auto">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <div className="flex -space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full border-2 border-white"></div>
-                <div className="w-8 h-8 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full border-2 border-white"></div>
-                <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full border-2 border-white"></div>
-              </div>
+              
               <span className="text-white font-semibold">⭐⭐⭐⭐⭐</span>
             </div>
             <p className="text-white/90 text-sm italic">
