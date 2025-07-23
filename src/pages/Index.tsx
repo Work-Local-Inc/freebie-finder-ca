@@ -17,8 +17,7 @@ const Index = () => {
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-48 h-48 md:w-64 md:h-64 rounded-full gradient-footer flex items-start justify-center pt-6 md:pt-8 shadow-elevated">
           <div className="text-center px-4">
             <div className="text-white font-bold text-xl md:text-2xl leading-tight">
-              100%<br />
-              FREE<br />
+              100% FREE<br />
               CANADIAN<br />
               SAMPLES
             </div>
