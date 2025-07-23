@@ -57,7 +57,7 @@ const Index = () => {
           
           {/* Enhanced Form */}
           <div className="max-w-lg mx-auto mb-8">
-            <div className="flex flex-col sm:flex-row gap-4 shadow-form rounded-2xl bg-white/10 backdrop-blur-sm p-2">
+            <div className="flex flex-col gap-4 shadow-form rounded-2xl bg-white/10 backdrop-blur-sm p-2">
               <div className="flex-1 relative">
                 <input type="email" placeholder="Enter your email address" className="w-full px-6 py-4 rounded-xl text-foreground bg-white border-0 focus:outline-none focus:ring-2 focus:ring-white/50 placeholder:text-muted-foreground text-lg font-medium" />
                 <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-muted-foreground">
