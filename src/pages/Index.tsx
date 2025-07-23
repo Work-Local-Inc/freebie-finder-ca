@@ -4,19 +4,25 @@ import heroBanner from "../assets/hero-products-banner.png";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Unit with Logo */}
-      <div className="relative w-full h-80 md:h-96 mb-12 flex items-center justify-center">
+      {/* Sticky Header */}
+      <header className="sticky top-0 z-50 bg-white shadow-sm py-4">
+        <div className="flex justify-center">
+          <img 
+            src="/lovable-uploads/c63f3671-fa40-485a-afab-71a2c8e221c4.png" 
+            alt="Freebies.com Logo" 
+            className="h-12 w-auto"
+          />
+        </div>
+      </header>
+
+      {/* Hero Unit */}
+      <div className="relative w-full h-80 md:h-96 mb-12">
         <img 
           src="/lovable-uploads/c27d8859-168c-4fa1-ae60-c62723812ff9.png" 
           alt="Free Samples Product Showcase - Popular Canadian Brands" 
-          className="absolute inset-0 w-full h-full object-cover"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/20"></div>
-        <img 
-          src="/lovable-uploads/c63f3671-fa40-485a-afab-71a2c8e221c4.png" 
-          alt="Freebies.com Logo" 
-          className="relative z-10 h-20 w-auto drop-shadow-lg"
-        />
+        <div className="absolute inset-0 bg-black/10"></div>
       </div>
 
       {/* Main Content */}
