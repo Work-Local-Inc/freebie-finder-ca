@@ -5,7 +5,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Sticky Header */}
-      <header className="sticky top-0 z-50 bg-white shadow-sm py-4">
+      <header className="sticky top-0 z-50 bg-white shadow-md py-2">
         <div className="flex justify-center">
           <img 
             src="/lovable-uploads/c63f3671-fa40-485a-afab-71a2c8e221c4.png" 
