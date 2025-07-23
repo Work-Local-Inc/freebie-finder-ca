@@ -15,10 +15,10 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/10"></div>
         
         {/* Circular Badge */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-48 h-48 md:w-64 md:h-64 rounded-full gradient-footer flex items-start justify-center pt-6 md:pt-8 shadow-elevated overflow-hidden z-20">
-          <div className="absolute inset-0 bg-center bg-cover opacity-20" style={{backgroundImage: `url(${canadianFlag})`}}></div>
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-48 h-48 md:w-64 md:h-64 rounded-full bg-white/90 flex items-start justify-center pt-6 md:pt-8 shadow-elevated overflow-hidden z-20">
+          <div className="absolute inset-0 bg-center bg-cover opacity-80" style={{backgroundImage: `url(${canadianFlag})`}}></div>
           <div className="text-center px-4 relative z-10">
-            <div className="text-white font-bold text-xl md:text-2xl leading-tight">
+            <div className="text-red-600 font-bold text-xl md:text-2xl leading-tight">
               100% FREE<br />
               CANADIAN<br />
               SAMPLES
