@@ -8,10 +8,9 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
+  const handleSubmit = (e: React.FormEvent) => {
     if (!email) {
+      e.preventDefault();
       toast({
         title: "Error",
         description: "Please enter your email address",
@@ -21,24 +20,8 @@ const Index = () => {
     }
 
     setIsLoading(true);
-    
-    try {
-      // Netlify Forms handles the submission automatically
-      // The form will be submitted to Netlify's form handler
-      toast({
-        title: "Success! 🎉",
-        description: "You've been subscribed to our free samples newsletter!",
-      });
-      setEmail("");
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    // Let the form submit naturally to Netlify - no preventDefault()
+    // User will be redirected to Netlify's success page
   };
   return <div className="min-h-screen bg-background">
       {/* Sticky Header */}
