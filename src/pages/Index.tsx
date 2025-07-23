@@ -9,9 +9,20 @@ const Index = () => {
       </header>
 
       {/* Hero Unit */}
-      <div className="relative w-full h-80 md:h-96 mb-12">
+      <div className="relative w-full h-80 md:h-96 mb-12 overflow-hidden">
         <img src="/lovable-uploads/c27d8859-168c-4fa1-ae60-c62723812ff9.png" alt="Free Samples Product Showcase - Popular Canadian Brands" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/10"></div>
+        
+        {/* Circular Badge */}
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-48 h-48 md:w-64 md:h-64 rounded-full gradient-footer flex items-center justify-center shadow-elevated">
+          <div className="text-center px-4">
+            <div className="text-white font-bold text-lg md:text-xl leading-tight">
+              FREE<br />
+              CANADIAN<br />
+              SAMPLES
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Main Content */}
