@@ -1,6 +1,45 @@
+import { useState } from "react";
 import heroBanner from "../assets/hero-products-banner.png";
 import americanFlag from "../assets/american-flag.png";
+import { useToast } from "@/hooks/use-toast";
+
 const Index = () => {
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email) {
+      toast({
+        title: "Error",
+        description: "Please enter your email address",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+    
+    try {
+      // Netlify Forms handles the submission automatically
+      // The form will be submitted to Netlify's form handler
+      toast({
+        title: "Success! 🎉",
+        description: "You've been subscribed to our free samples newsletter!",
+      });
+      setEmail("");
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return <div className="min-h-screen bg-background">
       {/* Sticky Header */}
       <header className="sticky top-0 z-50 bg-white shadow-md py-2">
@@ -69,19 +108,49 @@ const Index = () => {
           </p>
           
           {/* Enhanced Form */}
-          <div className="max-w-lg mx-auto mb-8">
+          <form 
+            name="email-signup" 
+            method="POST" 
+            data-netlify="true" 
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+            className="max-w-lg mx-auto mb-8"
+          >
+            {/* Hidden form name field for Netlify */}
+            <input type="hidden" name="form-name" value="email-signup" />
+            
+            {/* Honeypot field for spam protection */}
+            <div style={{ display: 'none' }}>
+              <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+              </label>
+            </div>
+
             <div className="flex flex-col gap-4 shadow-form rounded-2xl bg-white/10 backdrop-blur-sm p-2">
               <div className="flex-1 relative">
-                <input type="email" placeholder="Enter your email address" className="w-full px-6 py-4 rounded-xl text-foreground bg-white border-0 focus:outline-none focus:ring-2 focus:ring-white/50 placeholder:text-muted-foreground text-lg font-medium" />
+                <input 
+                  type="email" 
+                  name="email"
+                  placeholder="Enter your email address" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  disabled={isLoading}
+                  className="w-full px-6 py-4 rounded-xl text-foreground bg-white border-0 focus:outline-none focus:ring-2 focus:ring-white/50 placeholder:text-muted-foreground text-lg font-medium disabled:opacity-50" 
+                />
                 <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-muted-foreground">
                   📧
                 </span>
               </div>
-              <button className="px-8 py-4 text-secondary-foreground rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 shadow-elevated whitespace-nowrap bg-green-600 hover:bg-green-500">
-                Get Free Samples →
+              <button 
+                type="submit"
+                disabled={isLoading}
+                className="px-8 py-4 text-secondary-foreground rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 shadow-elevated whitespace-nowrap bg-green-600 hover:bg-green-500 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+              >
+                {isLoading ? "Subscribing..." : "Get Free Samples →"}
               </button>
             </div>
-          </div>
+          </form>
           
           {/* Email Disclaimer */}
           <p className="text-red-900 text-sm mb-6 max-w-md mx-auto">
