@@ -23,7 +23,7 @@ const Index = () => {
   // Anti-bot: Load reCAPTCHA v3
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = 'https://www.google.com/recaptcha/api.js?render=6LfYourSiteKey_Replace_This';
+    script.src = 'https://www.google.com/recaptcha/api.js?render=6Lfa6JErAAAAALlaAU1Z3lOvzd8Ci6aSaBgVkGbz';
     script.async = true;
     document.head.appendChild(script);
     
@@ -97,7 +97,7 @@ const Index = () => {
     try {
       // Anti-bot: Get reCAPTCHA token
       if (window.grecaptcha) {
-        const token = await window.grecaptcha.execute('6LfYourSiteKey_Replace_This', { action: 'submit' });
+        const token = await window.grecaptcha.execute('6Lfa6JErAAAAALlaAU1Z3lOvzd8Ci6aSaBgVkGbz', { action: 'submit' });
         setRecaptchaToken(token);
       }
       // Check if we're in a Lovable preview environment
