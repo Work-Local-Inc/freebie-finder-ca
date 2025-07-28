@@ -100,12 +100,15 @@ const Index = () => {
         const token = await window.grecaptcha.execute('6Lfa6JErAAAAALlaAU1Z3lOvzd8Ci6aSaBgVkGbz', { action: 'submit' });
         setRecaptchaToken(token);
       }
-      // Check if we're in a Lovable preview environment
-      const isPreview = window.location.hostname.includes('lovableproject.com') || 
-                       window.location.hostname === 'localhost';
+      // Only treat localhost as preview mode - allow real submissions on deployed sites
+      const isPreview = window.location.hostname === 'localhost' || 
+                       window.location.hostname.includes('127.0.0.1');
+      
+      console.log('Form submission - hostname:', window.location.hostname, 'isPreview:', isPreview);
       
       if (isPreview) {
         // Simulate form submission in preview mode
+        console.log('Running in preview mode - simulating form submission');
         await new Promise(resolve => setTimeout(resolve, 1000));
         toast({
           title: "Success! 🎉", 
@@ -114,12 +117,21 @@ const Index = () => {
         setEmail("");
       } else {
         // Real Netlify form submission for deployed sites
+        console.log('Submitting to Netlify forms...');
         const formData = new FormData(e.target as HTMLFormElement);
+        
+        // Ensure form-name is included for Netlify
+        formData.set('form-name', 'email-signup');
         
         // Add reCAPTCHA token to form data
         if (recaptchaToken) {
           formData.set('g-recaptcha-response', recaptchaToken);
+          console.log('reCAPTCHA token included');
+        } else {
+          console.warn('No reCAPTCHA token available');
         }
+        
+        console.log('Form data being submitted:', Object.fromEntries(formData.entries()));
         
         const response = await fetch("/", {
           method: "POST",
@@ -127,14 +139,19 @@ const Index = () => {
           body: new URLSearchParams(formData as any).toString(),
         });
 
+        console.log('Response status:', response.status, 'Response OK:', response.ok);
+        
         if (response.ok) {
+          console.log('Form submitted successfully to Netlify');
           toast({
             title: "Success! 🎉",
             description: "You've been subscribed to our free samples newsletter!",
           });
           setEmail("");
         } else {
-          throw new Error("Form submission failed");
+          const responseText = await response.text();
+          console.error('Form submission failed:', response.status, responseText);
+          throw new Error(`Form submission failed: ${response.status} - ${responseText}`);
         }
       }
     } catch (error) {
