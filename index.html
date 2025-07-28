@@ -34,10 +34,16 @@
 
   <body>
     <!-- Hidden form for Netlify to detect at build time -->
-    <form name="email-signup" netlify netlify-honeypot="bot-field" hidden>
+    <form name="email-signup" netlify netlify-honeypot="bot-field" netlify-recaptcha hidden>
       <input type="text" name="bot-field" />
       <input type="email" name="email" />
       <input type="hidden" name="form-name" value="email-signup" />
+      <input type="url" name="website" />
+      <input type="tel" name="phone-number" />
+      <input type="text" name="address" />
+      <input type="checkbox" name="confirm-human" />
+      <input type="text" name="important-field" />
+      <input type="hidden" name="g-recaptcha-response" />
     </form>
     
     <div id="root"></div>

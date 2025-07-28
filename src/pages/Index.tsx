@@ -1,12 +1,48 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import heroBanner from "../assets/hero-products-banner.png";
 import americanFlag from "../assets/american-flag.png";
 import { useToast } from "@/hooks/use-toast";
 
+// TypeScript declaration for reCAPTCHA
+declare global {
+  interface Window {
+    grecaptcha?: {
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
+
 const Index = () => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [pageLoadTime] = useState(Date.now());
+  const [recaptchaToken, setRecaptchaToken] = useState("");
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Anti-bot: Load reCAPTCHA v3
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js?render=6LfYourSiteKey_Replace_This';
+    script.async = true;
+    document.head.appendChild(script);
+    
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  // Anti-bot: Email pattern validation
+  const isSpamEmail = (email: string): boolean => {
+    const spamPatterns = [
+      /\d{4,}/,  // More than 3 consecutive digits
+      /(.)\1{3,}/, // Same character repeated 4+ times
+      /^[a-zA-Z]+\d+@/, // Letters followed by numbers
+      /@(temp|temp-mail|10minutemail|guerrillamail)/, // Temporary email services
+      /^(test|spam|bot|fake)\d*@/, // Common spam prefixes
+    ];
+    return spamPatterns.some(pattern => pattern.test(email));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,9 +56,50 @@ const Index = () => {
       return;
     }
 
+    // Anti-bot: Check submission timing (too fast = bot)
+    const timeSpent = Date.now() - pageLoadTime;
+    if (timeSpent < 3000) { // Less than 3 seconds
+      toast({
+        title: "Error",
+        description: "Please take a moment to review the form",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Anti-bot: Email pattern validation
+    if (isSpamEmail(email)) {
+      toast({
+        title: "Error",
+        description: "Please enter a valid email address",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Anti-bot: Check honeypot fields
+    const formData = new FormData(e.target as HTMLFormElement);
+    const botFields = ['bot-field', 'website', 'phone-number', 'address'];
+    for (const field of botFields) {
+      if (formData.get(field)) {
+        // Silent fail for bots
+        setEmail("");
+        toast({
+          title: "Success! 🎉",
+          description: "You've been subscribed to our free samples newsletter!",
+        });
+        return;
+      }
+    }
+
     setIsLoading(true);
-    
+
     try {
+      // Anti-bot: Get reCAPTCHA token
+      if (window.grecaptcha) {
+        const token = await window.grecaptcha.execute('6LfYourSiteKey_Replace_This', { action: 'submit' });
+        setRecaptchaToken(token);
+      }
       // Check if we're in a Lovable preview environment
       const isPreview = window.location.hostname.includes('lovableproject.com') || 
                        window.location.hostname === 'localhost';
@@ -38,6 +115,11 @@ const Index = () => {
       } else {
         // Real Netlify form submission for deployed sites
         const formData = new FormData(e.target as HTMLFormElement);
+        
+        // Add reCAPTCHA token to form data
+        if (recaptchaToken) {
+          formData.set('g-recaptcha-response', recaptchaToken);
+        }
         
         const response = await fetch("/", {
           method: "POST",
@@ -132,24 +214,45 @@ const Index = () => {
             Beauty products • Food samples • Household goods • Exclusive giveaways
           </p>
           
-          {/* Enhanced Form */}
+          {/* Enhanced Anti-Bot Form */}
           <form 
+            ref={formRef}
             name="email-signup" 
             method="POST" 
             data-netlify="true" 
             data-netlify-honeypot="bot-field"
+            data-netlify-recaptcha="true"
             onSubmit={handleSubmit}
             className="max-w-lg mx-auto mb-8"
           >
             {/* Hidden form name field for Netlify */}
             <input type="hidden" name="form-name" value="email-signup" />
             
-            {/* Honeypot field for spam protection */}
+            {/* Multiple honeypot fields for enhanced bot detection */}
             <div style={{ display: 'none' }}>
-              <label>
-                Don't fill this out if you're human: <input name="bot-field" />
-              </label>
+              <label>Don't fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" /></label>
+              <input name="website" type="url" tabIndex={-1} autoComplete="off" />
+              <input name="phone-number" type="tel" tabIndex={-1} autoComplete="off" />
+              <input name="address" type="text" tabIndex={-1} autoComplete="off" />
+              <input type="checkbox" name="confirm-human" tabIndex={-1} />
             </div>
+            
+            {/* Anti-bot: CSS-based trap */}
+            <input 
+              type="text" 
+              name="important-field" 
+              style={{ 
+                position: 'absolute', 
+                left: '-9999px', 
+                opacity: 0, 
+                pointerEvents: 'none' 
+              }} 
+              tabIndex={-1} 
+              autoComplete="off" 
+            />
+            
+            {/* reCAPTCHA token field */}
+            <input type="hidden" name="g-recaptcha-response" value={recaptchaToken} />
 
             <div className="flex flex-col gap-4 shadow-form rounded-2xl bg-white/10 backdrop-blur-sm p-2">
               <div className="flex-1 relative">
